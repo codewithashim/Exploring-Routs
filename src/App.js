@@ -9,6 +9,7 @@ import Users from "./Components/Users/Users";
 import UserDetails from "./Components/UserDetails/UserDetails";
 import NotFound404 from "./Components/NotFound404/NotFound404";
 import Post from "./Components/Posts/Posts";
+import PostDetails from "./Components/PostDetails/PostDetails";
 
 function App() {
   // create router
@@ -27,6 +28,15 @@ function App() {
             return fetch("https://jsonplaceholder.typicode.com/posts");
           },
           element: <Post></Post>,
+        },
+        {
+          path: "/post/:postId",
+          
+          loader: async ({params}) =>{
+            return fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`);
+          },
+          element: <PostDetails></PostDetails>
+
         },
         {
           path: "/users",
