@@ -19,3 +19,10 @@
 .navBar a:hover {
     color: #007185;
 }
+
+.active{
+    background: #007185;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    
+}
