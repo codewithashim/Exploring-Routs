@@ -5,6 +5,9 @@ import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
 import Products from "./Components/Product/Products.jsx";
 import MainLayouts from "./Layouts/MainLayouts/MainLayouts";
+import Users from "./Components/Users/Users";
+import UserDetails from "./Components/UserDetails/UserDetails";
+import NotFound404 from "./Components/NotFound404/NotFound404";
 
 function App() {
   // create router
@@ -18,6 +21,24 @@ function App() {
         { path: "/about", element: <About></About> },
         { path: "/contact", element: <Contact></Contact> },
         { path: "/product", element: <Products></Products> },
+        {
+          path: "/users",
+          loader: async () => {
+            return fetch("https://jsonplaceholder.typicode.com/users");
+          },
+          element: <Users></Users>,
+        },
+        {
+          path: "/user/:userId",
+          loader: async ({ params }) => {
+            return fetch(
+              `https://jsonplaceholder.typicode.com/users/${params.userId}`
+            );
+          },
+          element: <UserDetails></UserDetails>,
+        },
+
+        { path: "*", element: <NotFound404></NotFound404> },
       ],
     },
   ]);

@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.userName {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: indianred;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+.userDetails h5 {
+    margin: 0.3rem 0;
+    text-align: left;
+}
