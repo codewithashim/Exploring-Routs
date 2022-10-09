@@ -8,10 +8,10 @@ import MainLayouts from "./Layouts/MainLayouts/MainLayouts";
 import Users from "./Components/Users/Users";
 import UserDetails from "./Components/UserDetails/UserDetails";
 import NotFound404 from "./Components/NotFound404/NotFound404";
+import Post from "./Components/Posts/Posts";
 
 function App() {
   // create router
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -21,6 +21,13 @@ function App() {
         { path: "/about", element: <About></About> },
         { path: "/contact", element: <Contact></Contact> },
         { path: "/product", element: <Products></Products> },
+        {
+          path: "/post",
+          loader: async () => {
+            return fetch("https://jsonplaceholder.typicode.com/posts");
+          },
+          element: <Post></Post>,
+        },
         {
           path: "/users",
           loader: async () => {
